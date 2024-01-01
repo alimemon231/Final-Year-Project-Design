@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <!-- Created by CodingLab |www.youtube.com/c/CodingLabYT-->
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="UTF-8">
-    <!--<title> Login and Registration Form in HTML & CSS | CodingLab </title>-->
-    <link rel="stylesheet" href="assests/css/style.css">
-    <!-- Fontawesome CDN Link -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   </head>
+
+<head>
+  <meta charset="UTF-8">
+  <!--<title> Login and Registration Form in HTML & CSS | CodingLab </title>-->
+  <link rel="stylesheet" href="assests/css/style.css">
+  <!-- Fontawesome CDN Link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    #classIdentification {
+      display: none;
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+
 <body>
   <div class="overlay">
     <div class="container">
@@ -18,8 +27,9 @@
           <img src="assests/Images/uni.jpg" alt="">
           <div class="text">
             <img src="assests/Images/logo.lnk" width="30px">
-            <span class="text-1">Explore about  <br> University of Sindh</span>
-            <span class="text-2" style="padding: 20px;">Welcome to the University of Sindh Discussion Forum  a space for students to engage, share insights, and foster a vibrant community of learners.</span>
+            <span class="text-1">Explore about <br> University of Sindh</span>
+            <span class="text-2" style="padding: 20px;">Welcome to the University of Sindh Discussion Forum a space for
+              students to engage, share insights, and foster a vibrant community of learners.</span>
           </div>
         </div>
         <div class="back">
@@ -31,9 +41,9 @@
         </div>
       </div>
       <div class="forms">
-          <div class="form-content">
-            <div class="login-form">
-              <div class="title">Login</div>
+        <div class="form-content">
+          <div class="login-form">
+            <div class="title">Login</div>
             <form action="#">
               <div class="input-boxes">
                 <div class="input-box">
@@ -50,34 +60,105 @@
                 </div>
                 <div class="text sign-up-text">Don't have an account? <label for="flip">Sigup now</label></div>
               </div>
-          </form>
-        </div>
+            </form>
+          </div>
           <div class="signup-form">
-            <div class="title">Signup</div>
-          <form action="#">
-              <div class="input-boxes">
-                <div class="input-box">
-                  <i class="fas fa-user"></i>
-                  <input type="text" placeholder="Enter your name" required>
+
+            <form action="#">
+
+              <div id="personalInfo">
+                <div class="input-boxes">
+                  <div class="title">Personal Info</div>
+                  <div class="input-box">
+                    <i class="fas fa-user"></i>
+                    <input type="text" placeholder="Enter your Full name" required>
+                  </div>
+                  <div class="input-box">
+                    <i class="fas fa-envelope"></i>
+                    <input type="text" placeholder="Enter your email" required>
+                  </div>
+                  <div class="input-box">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="Enter your password" required>
+                  </div>
+                  <div class="button input-box">
+                    <button type="button" class="btn" id="signupNext">NEXT</button>
+                  </div>
                 </div>
-                <div class="input-box">
-                  <i class="fas fa-envelope"></i>
-                  <input type="text" placeholder="Enter your email" required>
-                </div>
-                <div class="input-box">
-                  <i class="fas fa-lock"></i>
-                  <input type="password" placeholder="Enter your password" required>
-                </div>
-                <div class="button input-box">
-                  <input type="submit" value="Sumbit">
-                </div>
-                <div class="text sign-up-text">Already have an account? <label for="flip">Login now</label></div>
               </div>
-        </form>
-      </div>
-      </div>
+
+              <div id="classIdentification">
+                <div class="input-boxes">
+                  <div class="title">Class Identification</div>
+                  <div class="input-box">
+                    <i class="fas fa-hashtag"></i>
+                    <input type="text" placeholder="Enter your Roll Number" required>
+                  </div>
+                  <div class="input-box">
+                    <i class="fas fa-building"></i>
+                    <input type="text" placeholder="Enter Your Department Name" required>
+                  </div>
+                  <div class="input-box">
+                    <i class="fas fa-address-card"></i>
+                    <input type="file" name="file" id="file" class="inputfile" required>
+
+                  </div>
+                  <small>Upload a picture of your id card here</small>
+                  <div class="button input-box">
+                    <input type="submit" value="Sumbit">
+                  </div>
+                  <div class="button input-box">
+                    <button type="button" class="btn" id="signupBack">BACK</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="text sign-up-text">Already have an account? <label for="flip">Login now</label></div>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+
+
+  <script>
+
+    $(document).ready(function () {
+      $("#signupNext").click(function (e) {
+        var personal_info = $("#personalInfo");
+        var identification = $("#classIdentification");
+        personal_info.css('transform' , 'rotateX(90deg)');
+        personal_info.css('transition' , 'all 0.4s ease');
+       
+        setTimeout(function() {
+       
+        personal_info.css('display' , 'none');
+        identification.css('display' , 'block');
+        identification.css('transform' , 'rotateX(0deg)');
+        identification.css('transition' , 'all 0.8s ease');
+        }, 500);
+        
+      });
+    });
+    $("#signupBack").click(function (e) {
+        var personal_info = $("#personalInfo");
+        var identification = $("#classIdentification");
+        identification.css('transform' , 'rotateX(90deg)');
+        identification.css('transition' , 'all 0.4s ease');
+       
+        setTimeout(function() {
+       
+        identification.css('display' , 'none');
+        personal_info.css('display' , 'block');
+        personal_info.css('transform' , 'rotateX(0deg)');
+        personal_info.css('transition' , 'all 0.8s ease');
+        }, 500);
+        
+      
+    });
+
+  </script>
 </body>
+
 </html>

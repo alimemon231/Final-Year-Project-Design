@@ -93,7 +93,7 @@ body{
 }
 .container .cover .text img{
   position: absolute;
-  top: 20px;
+  top: 5%;
   z-index: 130;
   width: 150px;
   height: 150px;
@@ -103,7 +103,7 @@ body{
 }
 .cover .text .text-2{
   position: absolute;
-  top: 250px;
+  top: 58%;
 }
 .cover .text .text-1,
 .cover .text .text-2{
@@ -170,6 +170,29 @@ body{
   border-bottom: 2px solid rgba(0,0,0,0.2);
   transition: all 0.3s ease;
 }
+
+input[type="file"]::file-selector-button {
+  border-radius: 4px;
+  padding: 0 16px;
+  height: 30px;
+  cursor: pointer;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.05);
+  margin-top: 10px;
+  margin-right: 16px;
+  transition: background-color 200ms;
+}
+
+/* file upload button hover state */
+input[type="file"]::file-selector-button:hover {
+  background-color: #f3f4f6;
+}
+
+/* file upload button active state */
+input[type="file"]::file-selector-button:active {
+  background-color: #e5e7eb;
+}
 .form-content .input-box input:focus,
 .form-content .input-box input:valid{
   border-color: #337AB7;
@@ -202,6 +225,22 @@ body{
   cursor: pointer;
   transition: all 0.4s ease;
 }
+.forms .form-content .button button{
+  height: 100%;
+  width: 100%;
+  outline: none;
+  border: none;
+  padding: 0 30px;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  color: #fff;
+  background: #337AB7;
+  border-radius: 6px;
+  padding: 0px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
 .forms .form-content .button input:hover{
   background: #337AB7;
 }
@@ -221,7 +260,9 @@ body{
   display: none;
 }
 
-
+.move-horizental{
+  transform: rotateX(90deg);
+}
 
 @media (max-width: 730px) {
   .container .cover{
