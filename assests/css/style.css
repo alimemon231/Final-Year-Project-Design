@@ -1,285 +1,459 @@
-/* Google Font Link */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins" , sans-serif;
-}
-body{
-  background-image: url("../Images/bg.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  min-height: 80vh;
-}
-.overlay{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 30px;
-}
-.container{
-  position: relative;
-  max-width: 850px;
-  width: 100%;
-  background: #fff;
-  padding: 40px 30px;
-  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
-  perspective: 2700px;
-  opacity: 0.9;
-}
-.container .cover{
-  position: absolute;
-  top: 0;
-  left: 50%;
-  height: 100%;
-  width: 50%;
-  z-index: 98;
-  transition: all 1s ease;
-  transform-origin: left;
-  transform-style: preserve-3d;
-}
-.container #flip:checked ~ .cover{
-  transform: rotateY(-180deg);
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
-
- .container .cover .front,
- .container .cover .back{
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-}
-.cover .back{
-  transform: rotateY(-180deg);
-}
-.container .cover::before,
-.container .cover::after
-{
-  content: '';
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  background: #337AB7;
-  opacity: 0.4;
-  z-index: 12;
-}
-
-.container .cover img{
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-  z-index: 10;
-}
-.container .cover .text{
-  position: absolute;
-  z-index: 130;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.container .cover .text img{
-  position: absolute;
-  top: 5%;
-  z-index: 130;
-  width: 150px;
-  height: 150px;
-  align-items: top;
-  border-radius: 100px;
- 
-}
-.cover .text .text-2{
-  position: absolute;
-  top: 58%;
-}
-.cover .text .text-1,
-.cover .text .text-2{
-  font-size: 26px;
-  font-weight: 600;
-  color: #fff;
-  text-align: center;
-}
-.cover .text .text-2{
-  font-size: 15px;
-  font-weight: 500;
-}
-.container .forms{
-  height: 100%;
-  width: 100%;
-  background-color: #fff;
-}
-.container .form-content{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.form-content .login-form,
-.form-content .signup-form{
-  width: calc(100% / 2 - 25px);
-}
-.forms .form-content .title{
-  position: relative;
-  font-size: 24px;
-  font-weight: 500;
-  color: #333;
-}
-.forms .form-content .title:before{
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  height: 3px;
-  width: 25px;
-  background: #337AB7;
-}
-.forms .signup-form  .title:before{
-  width: 20px;
-}
-.forms .form-content .input-boxes{
-  margin-top: 30px;
-}
-.forms .form-content .input-box{
-  display: flex;
-  align-items: center;
-  height: 50px;
-  width: 100%;
-  margin: 10px 0;
-  position: relative;
-}
-.form-content .input-box input{
-  height: 100%;
-  width: 100%;
-  outline: none;
-  border: none;
-  padding: 0 30px;
-  font-size: 16px;
-  font-weight: 500;
-  border-bottom: 2px solid rgba(0,0,0,0.2);
-  transition: all 0.3s ease;
-}
-
-input[type="file"]::file-selector-button {
-  border-radius: 4px;
-  padding: 0 16px;
-  height: 30px;
-  cursor: pointer;
-  background-color: white;
-  border: 1px solid rgba(0, 0, 0, 0.16);
-  box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.05);
-  margin-top: 10px;
-  margin-right: 16px;
-  transition: background-color 200ms;
-}
-
-/* file upload button hover state */
-input[type="file"]::file-selector-button:hover {
-  background-color: #f3f4f6;
-}
-
-/* file upload button active state */
-input[type="file"]::file-selector-button:active {
-  background-color: #e5e7eb;
-}
-.form-content .input-box input:focus,
-.form-content .input-box input:valid{
-  border-color: #337AB7;
-}
-.form-content .input-box i{
-  position: absolute;
-  color: #337AB7;
-  font-size: 17px;
-}
-.forms .form-content .text{
-  font-size: 14px;
-  font-weight: 500;
-  color: #333;
-}
-.forms .form-content .text a{
-  text-decoration: none;
-}
-.forms .form-content .text a:hover{
-  text-decoration: underline;
-}
-.forms .form-content .button{
-  color: #fff;
-  margin-top: 40px;
-}
-.forms .form-content .button input{
-  color: #fff;
-  background: #337AB7;
-  border-radius: 6px;
-  padding: 0;
-  cursor: pointer;
-  transition: all 0.4s ease;
-}
-.forms .form-content .button button{
-  height: 100%;
-  width: 100%;
-  outline: none;
-  border: none;
-  padding: 0 30px;
-  font-size: 16px;
-  font-weight: 500;
-  transition: all 0.3s ease;
-  color: #fff;
-  background: #337AB7;
-  border-radius: 6px;
-  padding: 0px;
-  cursor: pointer;
-  transition: all 0.4s ease;
-}
-.forms .form-content .button input:hover{
-  background: #337AB7;
-}
-.forms .form-content label{
-  color: #337AB7;
-  cursor: pointer;
-}
-.forms .form-content label:hover{
-  text-decoration: underline;
-}
-.forms .form-content .login-text,
-.forms .form-content .sign-up-text{
-  text-align: center;
-  margin-top: 25px;
-}
-.container #flip{
-  display: none;
-}
-
-.move-horizental{
-  transform: rotateX(90deg);
-}
-
-@media (max-width: 730px) {
-  .container .cover{
-    display: none;
-  }
-  .form-content .login-form,
-  .form-content .signup-form{
+.main-container {
     width: 100%;
-  }
-  .form-content .signup-form{
+    padding: 0;
+    margin: 0;
+    display: flex;
+    min-height: 100%;
+}
+
+.side-bar {
+    position: absolute;
+    top: 0px;
+    width: 280px;
+    background: #337AB7;
+    z-index: 2;
+    padding: 70px 0px;
+    height: 340vh;
+}
+
+.side-bar-img {
+    position: relative;
+    width: 100%;
+    text-align: center;
+}
+
+.side-bar .names {
+    color: white;
+}
+
+.side-bar .names h3 {
+    font-size: 25px;
+}
+
+.side-bar .names h6,
+h5 {
+    margin-top: 5px;
+}
+
+.side-bar-img img {
+    width: 150px;
+    margin: auto;
+}
+
+.sidebar-line {
+    color: rgb(210, 210, 208);
+    opacity: 0.6;
+    margin-top: 20px;
+}
+
+.main-content {
+    position: absolute;
+    width: 100%;
+    overflow-wrap: break-word;
+}
+
+.top-bar {
+    position: relative;
+    width: 100%;
+    display: flex;
+    background: #337AB7;
+    padding: 30px;
+}
+
+.top-col-1 {
+    flex-basis: 60%;
+    text-align: right;
+}
+
+.top-col-2 {
+    flex-basis: 40%;
+    text-align: right;
+}
+
+.icon {
+    color: aliceblue;
+    font-size: 20px;
+    margin: 0 10px;
+    display: inline;
+
+}
+
+.top-col-2 i {
+    font-size: 14px;
+    margin-left: 20px;
+}
+
+.icon-btn {
+    border: 1px solid white;
+    border-radius: 30px;
+    padding: 10px 30px;
+}
+
+.posts {
+    position: relative;
+    padding-left: 340px;
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.sidebar-navigation {
+    position: relative;
+
+}
+
+.sidebar-navigation ul {
+    position: relative;
+    list-style-type: none;
+
+
+
+}
+
+.sidebar-navigation ul li {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    padding: 30px;
+    border-bottom: 1px solid white;
+
+}
+
+.sidebar-navigation ul li i {
+    margin-left: 90px;
+    font-size: 16px;
+    position: relative;
+    cursor: pointer;
+}
+
+.sub-menu {
+    margin-top: 10px;
     display: none;
-  }
-  .container #flip:checked ~ .forms .signup-form{
-    display: block;
-  }
-  .container #flip:checked ~ .forms .login-form{
+    -webkit-transition: max-height 0.5s ease-in-out;
+    -moz-transition: max-height 0.5s ease-in-out;
+    -o-transition: max-height 0.5s ease-in-out;
+    transition: max-height 0.5s ease-in-out;
+}
+
+.sub-menu ul li {
+    padding: 10px;
+    border: 0px;
+    color: white;
+    text-align: left;
+    text-decoration: none;
+    transition: all 0.4s;
+}
+
+.sub-menu ul li a {
+    text-decoration: none;
+    color: aliceblue;
+}
+
+.post-container {
+    display: flex;
+    background-color: #337AB7;
+    padding: 20px;
+    width: 90%;
+    margin: auto;
+    color: white;
+    border-radius: 20px;
+    margin-top: 20px;
+
+
+}
+
+.post-img {
+    flex: 0.20;
+    padding: 10px;
+    text-align: center;
+    align-self: center;
+
+}
+
+.post-img img {
+    width: 80px;
+
+}
+
+.post-content {
+    flex: 1;
+    align-self: center;
+    padding: 30px;
+
+}
+
+.post-content p {
+    margin-top: 20px;
+    font-size: 16px;
+    line-height: 20px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+
+}
+
+.badges {
+    display: flex;
+}
+
+.badge {
+    flex: 1;
+    padding: 5px 20px;
+    background: white;
+    border-radius: 30px;
+    color: #006ff6;
+    max-width: 150px;
+    ;
+    text-align: center;
+    margin: 0 10px;
+
+}
+
+.post-content a {
+    margin-top: 10px;
+}
+
+.btn {
+    margin: 10px;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    padding-top: 20px;
+}
+
+.submit-post {
+    position: relative;
+    padding-left: 340px;
+    padding-top: 30px;
+    width: 100%;
+
+}
+
+.post-form {
+    padding: 20px;
+    width: 90%;
+    margin: auto;
+    border-radius: 20px;
+    margin-top: 20px;
+}
+
+.post-group {
+    width: 100%;
+}
+
+.post-group textarea {
+    width: 100%;
+    border-radius: 30px;
+    color: black;
+    padding: 25px;
+    height: 200px;
+    text-align: left !important;
+}
+
+textarea::placeholder {
+    color: #999;
+    /* Example color */
+}
+
+.categories {
+    margin-top: 20px;
+}
+
+.categories select {
+    width: 160px;
+    padding: 15px;
+    background: white;
+    color: black;
+}
+
+select option {
+    padding: 15px;
+    background: white;
+    color: black;
+    border-radius: 30px;
+}
+
+.categories input {
+    float: right;
+    padding: 15px;
+    width: 200px;
+    background-color: white;
+    border-radius: 30px;
+    color: black;
+}
+
+.pagination {
+    position: relative;
+    padding-left: 340px;
+    padding-top: 30px;
+    width: 100%;
+
+}
+
+.pagination .buttons {
+    display: flex;
+    padding: 20px;
+    width: 50%;
+    margin: auto;
+    border-radius: 20px;
+    margin-top: 20px;
+    align-items: flex-end;
+
+}
+
+.back-button button {
+    width: 200px;
+    margin: 10px;
+    padding: 15px 40px;
+    background-color: #ffffff;
+    color: #337AB7;
+    border: 1px solid #337AB7;
+
+
+}
+
+.next-button button {
+    width: 200px;
+    margin: 10px;
+    padding: 15px 40px;
+    background-color: #337AB7;
+    color: white;
+    border: 1px solid white;
+
+
+}
+
+.notification-container {
+    position: relative;
+    display: inline-block;
+}
+
+/* Styling for the notification icon */
+.notification-icon {
+    cursor: pointer;
+    font-size: 18px;
+    color: #fff;
+    position: relative;
+}
+
+/* Styling for the notification background */
+.notification-bg {
     display: none;
-  }
-  
+    width: 300px;
+    height: 530px;
+    position: absolute;
+    left: -143px;
+    top: 40px;
+    background-color: white;
+    color: #333;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 300;
+    -webkit-transition: max-height 0.5s ease-in-out;
+    -moz-transition: max-height 0.5s ease-in-out;
+    -o-transition: max-height 0.5s ease-in-out;
+    transition: max-height 0.5s ease-in-out;
+}
+
+.notification-bg::before {
+    content: '';
+    position: absolute;
+    background: white;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 16px;
+    border-style: solid;
+    border-color: transparent transparent white transparent;
+    border-radius: 50%;
+}
+
+
+
+
+/* Styling for the notification bar content */
+.notification-content {
+    /* You can customize the content styling here */
+    margin-top: 20px;
+    position: inherit;
+   
+}
+
+
+.notification {
+    width: inherit;
+    display: flex;
+    padding: 20px 0;
+    
+    overflow-wrap: break-word;
+}
+
+.notification-img img {
+    width: 40px;
+    align-self: middle ;
+}
+
+.notification-text {
+    margin-left: 20px;
+}
+
+.notification-text .date {
+    font-size: 12px;
+    color: #333;
+    text-align: left;
+    padding-left: 10px;
+}
+
+.notification-text p{
+    width: 100%;
+    font-size: 14px;
+    text-align: left;
+    padding: 10px;
+}
+
+.message-icon{
+    cursor: pointer;
+    font-size: 18px;
+    color: #fff;
+    position: relative;
+}
+
+.message-bg{
+    display: none;
+    width: 300px;
+    height: 530px;
+    position: absolute;
+    left: -140px;
+    top: 40px;
+    background-color: white;
+    color: #333;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 300;
+    -webkit-transition: max-height 0.5s ease-in-out;
+    -moz-transition: max-height 0.5s ease-in-out;
+    -o-transition: max-height 0.5s ease-in-out;
+    transition: max-height 0.5s ease-in-out;
+}
+.message-bg::before {
+    content: '';
+    position: absolute;
+    background: white;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 16px;
+    border-style: solid;
+    border-color: transparent transparent white transparent;
+    border-radius: 50%;
 }

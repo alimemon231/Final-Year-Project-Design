@@ -5,12 +5,15 @@
 <head>
   <meta charset="UTF-8">
   <!--<title> Login and Registration Form in HTML & CSS | CodingLab </title>-->
-  <link rel="stylesheet" href="assests/css/style.css">
+  <link rel="stylesheet" href="assests/css/login-style.css">
   <!-- Fontawesome CDN Link -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     #classIdentification {
+      display: none;
+    }
+    #forget-form{
       display: none;
     }
   </style>
@@ -43,25 +46,44 @@
       <div class="forms">
         <div class="form-content">
           <div class="login-form">
-            <div class="title">Login</div>
-            <form action="#">
-              <div class="input-boxes">
-                <div class="input-box">
-                  <i class="fas fa-envelope"></i>
-                  <input type="text" placeholder="Enter your email" required>
+            <div id="login-form">
+              <div class="title">Login</div>
+              <form action="#">
+                <div class="input-boxes">
+                  <div class="input-box">
+                    <i class="fas fa-envelope"></i>
+                    <input type="text" placeholder="Enter your email" required>
+                  </div>
+                  <div class="input-box">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="Enter your password" required>
+                  </div>
+                  <div class="text"><a href="#" id="forgetButton">Forgot password?</a></div>
+                  <div class="button input-box">
+                    <input type="submit" value="Sumbit">
+                  </div>
+                  <div class="text sign-up-text">Don't have an account? <label for="flip">Sigup now</label></div>
                 </div>
-                <div class="input-box">
-                  <i class="fas fa-lock"></i>
-                  <input type="password" placeholder="Enter your password" required>
+              </form>
+            </div>
+
+            <div id="forget-form">
+              <div class="title">Forget Password</div>
+              <form action="#">
+                <div class="input-boxes">
+                  <div class="input-box">
+                    <i class="fas fa-envelope"></i>
+                    <input type="text" placeholder="Enter your email" required>
+                  </div>
+                  <small>Enter you email adress we will send a rest link on your email</small>
+                  <div class="button input-box">
+                    <input type="submit" value="Sumbit">
+                  </div>
+                  <div class="text"><a href="#" id="backLogin">Back to Login</a></div>
                 </div>
-                <div class="text"><a href="#">Forgot password?</a></div>
-                <div class="button input-box">
-                  <input type="submit" value="Sumbit">
-                </div>
-                <div class="text sign-up-text">Don't have an account? <label for="flip">Sigup now</label></div>
-              </div>
-            </form>
-          </div>
+              </form>
+            </div>
+            </div>
           <div class="signup-form">
 
             <form action="#">
@@ -135,17 +157,17 @@
        
         personal_info.css('display' , 'none');
         identification.css('display' , 'block');
-        identification.css('transform' , 'rotateX(0deg)');
         identification.css('transition' , 'all 0.8s ease');
+        identification.css('transform' , 'rotateX(0deg)');
         }, 500);
         
       });
-    });
-    $("#signupBack").click(function (e) {
+
+      $("#signupBack").click(function (e) {
         var personal_info = $("#personalInfo");
         var identification = $("#classIdentification");
+        identification.css('transition' , 'all 0.8s ease');
         identification.css('transform' , 'rotateX(90deg)');
-        identification.css('transition' , 'all 0.4s ease');
        
         setTimeout(function() {
        
@@ -157,6 +179,45 @@
         
       
     });
+
+    $("#forgetButton").click(function (e) {
+        var login_form = $("#login-form");
+        var forget_form = $("#forget-form");
+        login_form.css('transition' , 'all 0.8s ease');
+        login_form.css('transform' , 'rotateX(90deg)');
+       
+        setTimeout(function() {
+       
+        login_form.css('display' , 'none');
+        forget_form.css('display' , 'block');
+        forget_form.css('transform' , 'rotateX(0deg)');
+        forget_form.css('transition' , 'all 0.8s ease');
+        }, 500);
+        
+      
+    });
+
+    $("#backLogin").click(function (e) {
+        var login_form = $("#login-form");
+        var forget_form = $("#forget-form");
+        forget_form.css('transition' , 'all 0.8s ease');
+        forget_form.css('transform' , 'rotateX(90deg)');
+       
+        setTimeout(function() {
+       
+        forget_form.css('display' , 'none');
+        login_form.css('display' , 'block');
+        login_form.css('transform' , 'rotateX(0deg)');
+        login.css('transition' , 'all 0.8s ease');
+        }, 500);
+        
+      
+    });
+
+    });
+
+
+    
 
   </script>
 </body>
